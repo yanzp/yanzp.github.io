@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[原生js兼容问题]]></title>
+      <url>http://yoursite.com/2016/11/25/nativejs/</url>
+      <content type="html"><![CDATA[<p>原生js总是会碰到很多浏览器兼容的问题，这边就碰到的一些问题做下记录。</p>
+<h3 id="1-trim-去掉字符串两端的空格"><a href="#1-trim-去掉字符串两端的空格" class="headerlink" title="1.trim() 去掉字符串两端的空格"></a>1.trim() 去掉字符串两端的空格</h3><p>正常写法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">input.value.trim()</div></pre></td></tr></table></figure>
+<p>ie不能兼容，故兼容写法可为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/* 第一种 */</div><div class="line"><span class="keyword">function</span> strTrim(str) &#123;</div><div class="line">    <span class="built_in">return</span> str.replace(/(^\s*)|(\s*$)/g,<span class="string">""</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">strTrim(input.value)</div><div class="line"></div><div class="line">/* 第二种 */</div><div class="line">String.prototype.trim = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    <span class="built_in">return</span> this.replace(/^\s\s*/, <span class="string">''</span> ).replace(/\s\s*$/, <span class="string">''</span> );</div><div class="line">&#125;</div><div class="line"></div><div class="line">input.value.trim()</div></pre></td></tr></table></figure>
+<h3 id="2-addEventListener-监听事件"><a href="#2-addEventListener-监听事件" class="headerlink" title="2.addEventListener() 监听事件"></a>2.addEventListener() 监听事件</h3><p>ie下不能识别该函数，故改用attachEvent，兼容写法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (typeof document.addEventListener != <span class="string">'undefined'</span>) &#123;</div><div class="line">    documen.addEventListener(<span class="string">'click'</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">        var e = event || window.event;</div><div class="line">        ...</div><div class="line">    &#125;);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    /* 兼容ie */</div><div class="line">    documen.attachEvent(<span class="string">'click'</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">        var e = event || window.event;</div><div class="line">        ...</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[手机自定义输入键盘插件开发]]></title>
+      <url>http://yoursite.com/2016/11/16/inputPlugin/</url>
+      <content type="html"><![CDATA[<p>今天尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。</p>
+<p>这边主要是一个手机自定义的输入键盘，由于公司的性质主要是会计财政方面，所以会涉及很多表单，类似收据等。所以在填写表单时，需要手机自定义的输入键盘，而非手机自带的键盘，如大写数字等…</p>
+<p>如下图所示：</p>
+<p><img src="/image/input.png"></p>
+<p>起初并非是插件的形式，而是自己写了一个可以实现的效果，但感觉不太通用，要是页面稍微改动的话，js代码也要跟着动。所以就想着能不能改的通用一点。</p>
+<h3 id="页面结构"><a href="#页面结构" class="headerlink" title="页面结构"></a>页面结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"amount"</span> placeholder=<span class="string">"数字框"</span> data-index=<span class="string">"0"</span>&gt;</div><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"tag"</span> placeholder=<span class="string">"标签"</span> data-index=<span class="string">"1"</span>&gt;</div><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"tag"</span> placeholder=<span class="string">"中文大写数字"</span> data-index=<span class="string">"2"</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"keyboard"</span>&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;span&gt;1&lt;/span&gt;</div><div class="line">		&lt;span&gt;2&lt;/span&gt;</div><div class="line">		&lt;span&gt;3&lt;/span&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;span&gt;4&lt;/span&gt;</div><div class="line">		&lt;span&gt;5&lt;/span&gt;</div><div class="line">		&lt;span&gt;6&lt;/span&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;span&gt;7&lt;/span&gt;</div><div class="line">		&lt;span&gt;8&lt;/span&gt;</div><div class="line">		&lt;span&gt;9&lt;/span&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;span class=<span class="string">"back"</span>&gt;关闭&lt;/span&gt;</div><div class="line">		&lt;span&gt;0&lt;/span&gt;</div><div class="line">		&lt;span class=<span class="string">"del"</span>&gt;del&lt;/span&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>input上需加属性data-index</li>
+<li>自定义键盘父级元素需加class=”keyboard”</li>
+</ol>
+</blockquote>
+<h3 id="实现的思路（考虑多种文本输入形式）："><a href="#实现的思路（考虑多种文本输入形式）：" class="headerlink" title="实现的思路（考虑多种文本输入形式）："></a>实现的思路（考虑多种文本输入形式）：</h3><p>首先，文本框获取焦点时禁止手机弹出自带的输入键盘。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 禁止弹出手机自带的键盘</div><div class="line">forbidFocus: <span class="keyword">function</span>(obj) &#123;</div><div class="line">	obj.on(<span class="string">'focus'</span>, <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		document.activeElement.blur();</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其次，显示当前输入框的输入键盘，关闭其他键盘。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 显示自定义键盘</div><div class="line">showMyKeyboard: <span class="keyword">function</span>(index) &#123;</div><div class="line">	$(<span class="string">'.keyboard'</span>).eq(index).animate(&#123;</div><div class="line">		bottom: <span class="string">"0"</span></div><div class="line">	&#125;, <span class="string">'fast'</span>);</div><div class="line">&#125;</div><div class="line">// 关闭其他键盘</div><div class="line">hideOtherKeyboard: <span class="keyword">function</span>(index) &#123;</div><div class="line">	$(<span class="string">'.keyboard'</span>).not(<span class="string">'.board'</span> + index).animate(&#123;</div><div class="line">		bottom: - this.defaults.height + <span class="string">'px'</span></div><div class="line">	&#125;, <span class="string">'fast'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后，点击键盘做操作，判断对应的input获取值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 文本框获取值</div><div class="line">getValue: <span class="keyword">function</span>(index) &#123;	</div><div class="line">	var <span class="variable">$this</span> = this;</div><div class="line">	var value = <span class="string">""</span>;</div><div class="line">	$(<span class="string">'.keyboard'</span>).eq(index).find(<span class="string">'span'</span>).each(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		$(this).click(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">			<span class="keyword">if</span>($(this).hasClass(<span class="string">'del'</span>))&#123;</div><div class="line">				value = $(<span class="string">'.'</span> + <span class="variable">$this</span>.defaults.inputClass + index).val().substring(0, $(<span class="string">'.'</span> + <span class="variable">$this</span>.defaults.inputClass + index).val().length - 1);</div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span>($(this).hasClass(<span class="string">'back'</span>)) &#123;</div><div class="line">				value = value;</div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span>($(this).closest(<span class="string">'.tip'</span>).length &gt; 0) &#123;</div><div class="line">				value = $(this).text();</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				value += $(this).text();</div><div class="line">			&#125;</div><div class="line">			$(<span class="string">'.'</span> + <span class="variable">$this</span>.defaults.inputClass + index).val(value);	</div><div class="line">		&#125;);</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后续慢慢优化！</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo+github搭建博客]]></title>
+      <url>http://yoursite.com/2016/11/09/first/</url>
+      <content type="html"><![CDATA[<p>一直都很想弄个个人博客，so动手…</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo的中文网站：<a href="http://hexo.io/zh-cn/" target="_blank" rel="external">http://hexo.io/zh-cn/</a></p>
+<p>Hexo是一个基于Node.js的博客框架，可以用Markdown文件快速生成静态网页，托管在GitHub上面。</p>
+<h3 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h3><ul>
+<li><p>系统：</p>
+<p>  windows 7 (64位)</p>
+</li>
+<li><p>软件：</p>
+<p>  git: 2.5.1<br>  node: V6.2.0<br>  git官网：<a href="http://git-scm.com/" target="_blank" rel="external">http://git-scm.com/</a><br>  node官网：<a href="http://nodejs.org/" target="_blank" rel="external">http://nodejs.org/</a></p>
+</li>
+</ul>
+<h3 id="部署开始"><a href="#部署开始" class="headerlink" title="部署开始"></a>部署开始</h3><ul>
+<li><p>git安装</p>
+</li>
+<li><p>node安装</p>
+<p>  git和node的安装相对简单，官网下载，傻瓜式的点击下一步即可。</p>
+</li>
+<li><p>Hexo安装</p>
+<p>  在Git Bash上输入Hexo安装命令：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<blockquote>
+<p>就是在这一步，我卡了好久，发现git的这条命令一直没执行下去。后来查了下，知道是node.js源的设置问题。大致是因为node.js官方源<a href="http://registry.npmjs.org" target="_blank" rel="external">http://registry.npmjs.org</a>是国外的，多多少少都会有些许问题，所以最好改用国内淘宝提供的源<a href="http://npm.taobao.org/" target="_blank" rel="external">http://npm.taobao.org/</a>。</p>
+</blockquote>
+<p>  要改用淘宝的源，在Git Bash上输入以下这些：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> cnpm=<span class="string">"npm --registry=https://registry.npm.taobao.org \</span></div><div class="line">--cache=<span class="variable">$HOME</span>/.npm/.cache/cnpm \</div><div class="line">--disturl=https://npm.taobao.org/dist \</div><div class="line">--userconfig=<span class="variable">$HOME</span>/.cnpmrc"</div></pre></td></tr></table></figure>
+<p>  验证是否可以使用淘宝的cnpm命令：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm info express</div></pre></td></tr></table></figure>
+<blockquote>
+<p>输出了一大推，说明成功啦，以后使用淘宝的源都可以这样了。</p>
+</blockquote>
+<p>  所以现在输入Hexo安装命令则变成（接下来所以原本使用npm的都要换成cnpm）：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm install -g hexo-cli</div></pre></td></tr></table></figure>
+<p>  可能需要等一会会，命令过程中如果有WARM警告也没事</p>
+</li>
+</ul>
+<h3 id="创建Hexo项目"><a href="#创建Hexo项目" class="headerlink" title="创建Hexo项目"></a>创建Hexo项目</h3><ul>
+<li><p>初始化项目</p>
+<p>  首先创建项目，建立Hexo文件夹，在该文件夹下打开Git Bash，执行：</p>
+<pre><code class="bash">$ hexo init
+</code></pre>
+<p>  等这个执行完一大串后，继续执行：</p>
+<pre><code class="bash">$ cnpm install
+</code></pre>
+<p>  等这个结束后，你会发现你的Hexo文件夹下多了一些目录结构。</p>
+</li>
+<li><p>启动停止服务 </p>
+<p>  现在启动hexo本地服务，看下博客的默认界面，执行命令：</p>
+<pre><code class="bash">$ hexo server
+</code></pre>
+<p>  现在用浏览器访问：<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
+<p>  按ctrl + c 可停止hexo服务</p>
+</li>
+</ul>
+<p>搭建过程具体参考地址：</p>
+<p><a href="http://www.jianshu.com/p/1c98aed8d92e" target="_blank" rel="external">http://www.jianshu.com/p/1c98aed8d92e</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://yoursite.com/2016/11/08/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    </entry>
+    
+  
+  
+</search>
