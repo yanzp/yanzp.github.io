@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="插件," />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -84,30 +84,36 @@
 
 
 
-<meta name="description" content="今天尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。
-这边主要是一个手机自定义的输入键盘，由于公司的性质主要是会计财政方面，所以会涉及很多表单，类似收据等。所以在填写表单时，需要手机自定义的输入键盘，而非手机自带的键盘，如大写数字等…
-如下图所示：
+<meta name="description" content="1. 声明变量可以使用一下三种方式声明变量：
 
-起初并非是插件的形式，而是自己写了一个可以实现的效果，但感觉不太通用，要是页面稍微改动的话，js代码也要跟">
+使用关键词var，如：var x = 1; 声明局部变量或全局变量
+直接赋值，如：x = 1; 即声明了全局变量，不建议使用
+使用关键词let，声明块作用域的局部变量
+  var与let的作用域：
+  1234567891011121314151617function varTest() &amp;#123;	var x = 1;	if (true) &amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手机自定义输入键盘插件开发">
-<meta property="og:url" content="http://yoursite.com/2016/11/16/inputPlugin/index.html">
+<meta property="og:title" content="javascript基础">
+<meta property="og:url" content="http://yoursite.com/2016/11/26/js/index.html">
 <meta property="og:site_name" content="言小麦">
-<meta property="og:description" content="今天尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。
-这边主要是一个手机自定义的输入键盘，由于公司的性质主要是会计财政方面，所以会涉及很多表单，类似收据等。所以在填写表单时，需要手机自定义的输入键盘，而非手机自带的键盘，如大写数字等…
-如下图所示：
+<meta property="og:description" content="1. 声明变量可以使用一下三种方式声明变量：
 
-起初并非是插件的形式，而是自己写了一个可以实现的效果，但感觉不太通用，要是页面稍微改动的话，js代码也要跟">
-<meta property="og:image" content="http://yoursite.com/image/input.png">
-<meta property="og:updated_time" content="2016-11-25T06:31:18.277Z">
+使用关键词var，如：var x = 1; 声明局部变量或全局变量
+直接赋值，如：x = 1; 即声明了全局变量，不建议使用
+使用关键词let，声明块作用域的局部变量
+  var与let的作用域：
+  1234567891011121314151617function varTest() &amp;#123;	var x = 1;	if (true) &amp;#1">
+<meta property="og:image" content="http://yoursite.com/image/special.png">
+<meta property="og:updated_time" content="2016-11-26T07:19:18.037Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手机自定义输入键盘插件开发">
-<meta name="twitter:description" content="今天尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。
-这边主要是一个手机自定义的输入键盘，由于公司的性质主要是会计财政方面，所以会涉及很多表单，类似收据等。所以在填写表单时，需要手机自定义的输入键盘，而非手机自带的键盘，如大写数字等…
-如下图所示：
+<meta name="twitter:title" content="javascript基础">
+<meta name="twitter:description" content="1. 声明变量可以使用一下三种方式声明变量：
 
-起初并非是插件的形式，而是自己写了一个可以实现的效果，但感觉不太通用，要是页面稍微改动的话，js代码也要跟">
-<meta name="twitter:image" content="http://yoursite.com/image/input.png">
+使用关键词var，如：var x = 1; 声明局部变量或全局变量
+直接赋值，如：x = 1; 即声明了全局变量，不建议使用
+使用关键词let，声明块作用域的局部变量
+  var与let的作用域：
+  1234567891011121314151617function varTest() &amp;#123;	var x = 1;	if (true) &amp;#1">
+<meta name="twitter:image" content="http://yoursite.com/image/special.png">
 
 
 
@@ -128,10 +134,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/16/inputPlugin/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/26/js/"/>
 
 
-  <title> 手机自定义输入键盘插件开发 | 言小麦 </title>
+  <title> javascript基础 | 言小麦 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
@@ -304,7 +310,7 @@
             
             
               
-                手机自定义输入键盘插件开发
+                javascript基础
               
             
           </h1>
@@ -316,8 +322,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-16T09:47:22+08:00" content="2016-11-16">
-              2016-11-16
+            <time itemprop="dateCreated" datetime="2016-11-26T10:24:43+08:00" content="2016-11-26">
+              2016-11-26
             </time>
           </span>
 
@@ -331,7 +337,7 @@
 
           
           
-             <span id="/2016/11/16/inputPlugin/" class="leancloud_visitors" data-flag-title="手机自定义输入键盘插件开发">
+             <span id="/2016/11/26/js/" class="leancloud_visitors" data-flag-title="javascript基础">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,26 +359,23 @@
       
 
       
-        <p>今天尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。</p>
-<p>这边主要是一个手机自定义的输入键盘，由于公司的性质主要是会计财政方面，所以会涉及很多表单，类似收据等。所以在填写表单时，需要手机自定义的输入键盘，而非手机自带的键盘，如大写数字等…</p>
-<p>如下图所示：</p>
-<p><img src="/image/input.png"></p>
-<p>起初并非是插件的形式，而是自己写了一个可以实现的效果，但感觉不太通用，要是页面稍微改动的话，js代码也要跟着动。所以就想着能不能改的通用一点。</p>
-<h3 id="页面结构"><a href="#页面结构" class="headerlink" title="页面结构"></a>页面结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"amount"</span> placeholder=<span class="string">"数字框"</span> data-index=<span class="string">"0"</span>&gt;</div><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"tag"</span> placeholder=<span class="string">"标签"</span> data-index=<span class="string">"1"</span>&gt;</div><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"tag"</span> placeholder=<span class="string">"中文大写数字"</span> data-index=<span class="string">"2"</span>&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"keyboard"</span>&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;span&gt;1&lt;/span&gt;</div><div class="line">		&lt;span&gt;2&lt;/span&gt;</div><div class="line">		&lt;span&gt;3&lt;/span&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;span&gt;4&lt;/span&gt;</div><div class="line">		&lt;span&gt;5&lt;/span&gt;</div><div class="line">		&lt;span&gt;6&lt;/span&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;span&gt;7&lt;/span&gt;</div><div class="line">		&lt;span&gt;8&lt;/span&gt;</div><div class="line">		&lt;span&gt;9&lt;/span&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;span class=<span class="string">"back"</span>&gt;关闭&lt;/span&gt;</div><div class="line">		&lt;span&gt;0&lt;/span&gt;</div><div class="line">		&lt;span class=<span class="string">"del"</span>&gt;del&lt;/span&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+        <h3 id="1-声明变量"><a href="#1-声明变量" class="headerlink" title="1. 声明变量"></a>1. 声明变量</h3><p>可以使用一下三种方式声明变量：</p>
+<ul>
+<li>使用关键词var，如：var x = 1; 声明局部变量或全局变量</li>
+<li>直接赋值，如：x = 1; 即声明了全局变量，不建议使用</li>
+<li><p>使用关键词let，声明块作用域的局部变量</p>
+<p>  var与let的作用域：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">varTest</span></span>() &#123;</div><div class="line">	var x = 1;</div><div class="line">	<span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">		var x = 2;</div><div class="line">		console.log(x); // 2</div><div class="line">	&#125;</div><div class="line">	console.log(x); // 2</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">letTest</span></span>() &#123;</div><div class="line">	<span class="built_in">let</span> x = 1;</div><div class="line">	<span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">		<span class="built_in">let</span> x = 2;</div><div class="line">		console.log(x); // 2</div><div class="line">	&#125;</div><div class="line">	console.log(x); // 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <blockquote>
-<ol>
-<li>input上需加属性data-index</li>
-<li>自定义键盘父级元素需加class=”keyboard”</li>
-</ol>
+<p>用 var 或 let 声明的且未赋初值的变量，值会被设定为undefined<br>  在所有函数之外声明的变量，叫做全局变量<br>  在函数内部声明的变量，叫做局部变量，只能在函数内部访问</p>
 </blockquote>
-<h3 id="实现的思路（考虑多种文本输入形式）："><a href="#实现的思路（考虑多种文本输入形式）：" class="headerlink" title="实现的思路（考虑多种文本输入形式）："></a>实现的思路（考虑多种文本输入形式）：</h3><p>首先，文本框获取焦点时禁止手机弹出自带的输入键盘。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 禁止弹出手机自带的键盘</div><div class="line">forbidFocus: <span class="keyword">function</span>(obj) &#123;</div><div class="line">	obj.on(<span class="string">'focus'</span>, <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		document.activeElement.blur();</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其次，显示当前输入框的输入键盘，关闭其他键盘。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 显示自定义键盘</div><div class="line">showMyKeyboard: <span class="keyword">function</span>(index) &#123;</div><div class="line">	$(<span class="string">'.keyboard'</span>).eq(index).animate(&#123;</div><div class="line">		bottom: <span class="string">"0"</span></div><div class="line">	&#125;, <span class="string">'fast'</span>);</div><div class="line">&#125;</div><div class="line">// 关闭其他键盘</div><div class="line">hideOtherKeyboard: <span class="keyword">function</span>(index) &#123;</div><div class="line">	$(<span class="string">'.keyboard'</span>).not(<span class="string">'.board'</span> + index).animate(&#123;</div><div class="line">		bottom: - this.defaults.height + <span class="string">'px'</span></div><div class="line">	&#125;, <span class="string">'fast'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>最后，点击键盘做操作，判断对应的input获取值。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 文本框获取值</div><div class="line">getValue: <span class="keyword">function</span>(index) &#123;	</div><div class="line">	var <span class="variable">$this</span> = this;</div><div class="line">	var value = <span class="string">""</span>;</div><div class="line">	$(<span class="string">'.keyboard'</span>).eq(index).find(<span class="string">'span'</span>).each(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		$(this).click(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">			<span class="keyword">if</span>($(this).hasClass(<span class="string">'del'</span>))&#123;</div><div class="line">				value = $(<span class="string">'.'</span> + <span class="variable">$this</span>.defaults.inputClass + index).val().substring(0, $(<span class="string">'.'</span> + <span class="variable">$this</span>.defaults.inputClass + index).val().length - 1);</div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span>($(this).hasClass(<span class="string">'back'</span>)) &#123;</div><div class="line">				value = value;</div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span>($(this).closest(<span class="string">'.tip'</span>).length &gt; 0) &#123;</div><div class="line">				value = $(this).text();</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				value += $(this).text();</div><div class="line">			&#125;</div><div class="line">			$(<span class="string">'.'</span> + <span class="variable">$this</span>.defaults.inputClass + index).val(value);	</div><div class="line">		&#125;);</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>后续慢慢优化！</p>
+<h3 id="2-数组"><a href="#2-数组" class="headerlink" title="2. 数组"></a>2. 数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var fish = [<span class="string">'Lion'</span>, ,<span class="string">'Angel'</span>, ];</div><div class="line">console.log(fish.length); // 3</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在同一行中连写两个逗号（,），数组中就会产生一个没有被指定的元素，其初始值是undefined<br>若在元素列表的尾部添加了一个逗号，它将会被忽略<br>在自己写代码时：显式地将缺失的元素声明为undefined，将大大提高代码的清晰度和可维护性。</p>
+</blockquote>
+<h3 id="3-转义字符"><a href="#3-转义字符" class="headerlink" title="3. 转义字符"></a>3. 转义字符</h3><p><img src="/image/special.png"></p>
 
       
     </div>
@@ -395,7 +398,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/插件/" rel="tag">#插件</a>
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
           
         </div>
       
@@ -404,17 +407,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/09/first/" rel="next" title="Hexo+github搭建博客">
-                <i class="fa fa-chevron-left"></i> Hexo+github搭建博客
+              <a href="/2016/11/25/nativejs/" rel="next" title="原生js兼容问题">
+                <i class="fa fa-chevron-left"></i> 原生js兼容问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/25/nativejs/" rel="prev" title="原生js兼容问题">
-                原生js兼容问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,7 +549,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面结构"><span class="nav-number">1.</span> <span class="nav-text">页面结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现的思路（考虑多种文本输入形式）："><span class="nav-number">2.</span> <span class="nav-text">实现的思路（考虑多种文本输入形式）：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-声明变量"><span class="nav-number">1.</span> <span class="nav-text">1. 声明变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数组"><span class="nav-number">2.</span> <span class="nav-text">2. 数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-转义字符"><span class="nav-number">3.</span> <span class="nav-text">3. 转义字符</span></a></li></ol></div>
             
           </div>
         </section>

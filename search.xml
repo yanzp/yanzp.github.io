@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title><![CDATA[javascript基础]]></title>
+      <url>http://yoursite.com/2016/11/26/js/</url>
+      <content type="html"><![CDATA[<h3 id="1-声明变量"><a href="#1-声明变量" class="headerlink" title="1. 声明变量"></a>1. 声明变量</h3><p>可以使用一下三种方式声明变量：</p>
+<ul>
+<li>使用关键词var，如：var x = 1; 声明局部变量或全局变量</li>
+<li>直接赋值，如：x = 1; 即声明了全局变量，不建议使用</li>
+<li><p>使用关键词let，声明块作用域的局部变量</p>
+<p>  var与let的作用域：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">varTest</span></span>() &#123;</div><div class="line">	var x = 1;</div><div class="line">	<span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">		var x = 2;</div><div class="line">		console.log(x); // 2</div><div class="line">	&#125;</div><div class="line">	console.log(x); // 2</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">letTest</span></span>() &#123;</div><div class="line">	<span class="built_in">let</span> x = 1;</div><div class="line">	<span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">		<span class="built_in">let</span> x = 2;</div><div class="line">		console.log(x); // 2</div><div class="line">	&#125;</div><div class="line">	console.log(x); // 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>用 var 或 let 声明的且未赋初值的变量，值会被设定为undefined<br>  在所有函数之外声明的变量，叫做全局变量<br>  在函数内部声明的变量，叫做局部变量，只能在函数内部访问</p>
+</blockquote>
+<h3 id="2-数组"><a href="#2-数组" class="headerlink" title="2. 数组"></a>2. 数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var fish = [<span class="string">'Lion'</span>, ,<span class="string">'Angel'</span>, ];</div><div class="line">console.log(fish.length); // 3</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在同一行中连写两个逗号（,），数组中就会产生一个没有被指定的元素，其初始值是undefined<br>若在元素列表的尾部添加了一个逗号，它将会被忽略<br>在自己写代码时：显式地将缺失的元素声明为undefined，将大大提高代码的清晰度和可维护性。</p>
+</blockquote>
+<h3 id="3-转义字符"><a href="#3-转义字符" class="headerlink" title="3. 转义字符"></a>3. 转义字符</h3><p><img src="/image/special.png"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[原生js兼容问题]]></title>
       <url>http://yoursite.com/2016/11/25/nativejs/</url>
       <content type="html"><![CDATA[<p>原生js总是会碰到很多浏览器兼容的问题，这边就碰到的一些问题做下记录。</p>
