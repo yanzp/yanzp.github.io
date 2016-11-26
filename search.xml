@@ -23,6 +23,14 @@
 <p>在同一行中连写两个逗号（,），数组中就会产生一个没有被指定的元素，其初始值是undefined<br>若在元素列表的尾部添加了一个逗号，它将会被忽略<br>在自己写代码时：显式地将缺失的元素声明为undefined，将大大提高代码的清晰度和可维护性。</p>
 </blockquote>
 <h3 id="3-转义字符"><a href="#3-转义字符" class="headerlink" title="3. 转义字符"></a>3. 转义字符</h3><p><img src="/image/special.png"></p>
+<h3 id="4-for和for…in"><a href="#4-for和for…in" class="headerlink" title="4. for和for…in"></a>4. for和for…in</h3><blockquote>
+<p>for…in 语句迭代一个指定的变量去遍历这个对象的属性</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (variable <span class="keyword">in</span> object) &#123;</div><div class="line">   statements</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>for循环语句遍历数组元素</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (var i = 0; i &lt; array.length; i++) &#123;</div><div class="line">   statements</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
