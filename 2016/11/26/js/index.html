@@ -94,7 +94,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript基础">
 <meta property="og:url" content="http://yoursite.com/2016/11/26/js/index.html">
-<meta property="og:site_name" content="言小麦">
+<meta property="og:site_name" content="言">
 <meta property="og:description" content="1. 声明变量可以使用一下三种方式声明变量：
 
 使用关键词var，如：var x = 1; 声明局部变量或全局变量
@@ -103,7 +103,7 @@
   var与let的作用域：
   1234567891011121314151617function varTest() &amp;#123;	var x = 1;	if (true) &amp;#1">
 <meta property="og:image" content="http://yoursite.com/image/special.png">
-<meta property="og:updated_time" content="2016-11-26T08:57:16.496Z">
+<meta property="og:updated_time" content="2016-11-28T07:56:55.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript基础">
 <meta name="twitter:description" content="1. 声明变量可以使用一下三种方式声明变量：
@@ -137,7 +137,7 @@
   <link rel="canonical" href="http://yoursite.com/2016/11/26/js/"/>
 
 
-  <title> javascript基础 | 言小麦 </title>
+  <title> javascript基础 | 言 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
@@ -168,7 +168,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">言小麦</span>
+      <span class="site-title">言</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -380,10 +380,25 @@
 <p>for…in 语句迭代一个指定的变量去遍历这个对象的属性</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (variable <span class="keyword">in</span> object) &#123;</div><div class="line">   statements</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>遍历对象：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var car = &#123;</div><div class="line">	make: <span class="string">'Ford'</span>,</div><div class="line">	model: <span class="string">'Mustang'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (var i <span class="keyword">in</span> car) &#123;</div><div class="line">	console.log(i); // make model</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>若遍历数组，返回的是数组元素的下标：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr = [3, 5, 7];</div><div class="line"><span class="keyword">for</span> (var i <span class="keyword">in</span> arr) &#123;</div><div class="line">   console.log(i); // 0 1 2</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>for循环语句遍历数组元素</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (var i = 0; i &lt; array.length; i++) &#123;</div><div class="line">   statements</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-函数"><a href="#5-函数" class="headerlink" title="5. 函数"></a>5. 函数</h3><p>一个函数的定义（也称为函数的声明）由一系列的函数关键词组成, 依次为：</p>
+<p>● 函数的名称。<br>● 函数参数列表，包围在括号( )中并由逗号( , )区隔。<br>● 函数功能，包围在花括号{ }中，用于定义函数功能的一些JavaScript语句。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var car = &#123;</div><div class="line">	make: <span class="string">'Ford'</span>,</div><div class="line">	model: <span class="string">'Mustang'</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> myFunc(theObject) &#123;</div><div class="line">	theObject.make = <span class="string">'Toyota'</span>; </div><div class="line">&#125;</div><div class="line"></div><div class="line">var x, y;</div><div class="line">x = car.make;</div><div class="line">console.log(x); // Ford </div><div class="line"></div><div class="line">myFunc(car);</div><div class="line">y = car.make;</div><div class="line">console.log(y); // Toyota</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如例子所示：<br>原始参数（比如一个具体的数字）被作为值传递给函数(pass to function by value)；值被传递给函数，如果被调用函数改变了这个参数的值，这样的改变不会影响到全局或调用的函数。<br>如果你传递一个对象(pass an object)（即一个非原始值(non-primitive value)，例如Array或用户自定义的其它对象）作为参数，而函数改变了这个对象的属性，这样的改变对函数外部是可见的</p>
+</blockquote>
+<p>亦可将函数作为一个引用传递给其他函数。如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> map(f, a) &#123;</div><div class="line">	var result = [], i;</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (i = 0; i &lt; a.length; i++) &#123;</div><div class="line">		result[i] = f(a[i]);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var m = map(<span class="keyword">function</span>(x) &#123;</div><div class="line">	<span class="built_in">return</span> x * x *x;</div><div class="line">&#125;, [0, 1, 2, 5, 10]);</div><div class="line"></div><div class="line">console.log(m); // [0, 1, 8, 125, 1000]</div></pre></td></tr></table></figure>
+<h3 id="6-delete"><a href="#6-delete" class="headerlink" title="6. delete"></a>6. delete</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var delval = 42;</div><div class="line">delete delval;</div><div class="line">console.log(delval); // 42</div><div class="line"></div><div class="line">var obj = &#123;</div><div class="line">	name: <span class="string">'yan'</span>,</div><div class="line">	age: <span class="string">'24'</span></div><div class="line">&#125;</div><div class="line">delete obj.age;</div><div class="line">console.log(obj.age); // undefined</div></pre></td></tr></table></figure>
+<blockquote>
+<p>使用 delete 删除各种各样的隐式声明(implicity declared)，但是被var声明的除外<br>如果 delete 操作成功, 属性或者元素会变成 undefined.</p>
+</blockquote>
 
       
     </div>
@@ -557,7 +572,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-声明变量"><span class="nav-number">1.</span> <span class="nav-text">1. 声明变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数组"><span class="nav-number">2.</span> <span class="nav-text">2. 数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-转义字符"><span class="nav-number">3.</span> <span class="nav-text">3. 转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-for和for…in"><span class="nav-number">4.</span> <span class="nav-text">4. for和for…in</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-声明变量"><span class="nav-number">1.</span> <span class="nav-text">1. 声明变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数组"><span class="nav-number">2.</span> <span class="nav-text">2. 数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-转义字符"><span class="nav-number">3.</span> <span class="nav-text">3. 转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-for和for…in"><span class="nav-number">4.</span> <span class="nav-text">4. for和for…in</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-函数"><span class="nav-number">5.</span> <span class="nav-text">5. 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-delete"><span class="nav-number">6.</span> <span class="nav-text">6. delete</span></a></li></ol></div>
             
           </div>
         </section>

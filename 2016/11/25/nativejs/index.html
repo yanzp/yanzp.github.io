@@ -92,13 +92,13 @@ ie不能兼容，故兼容写法可为：
 <meta property="og:type" content="article">
 <meta property="og:title" content="原生js兼容问题">
 <meta property="og:url" content="http://yoursite.com/2016/11/25/nativejs/index.html">
-<meta property="og:site_name" content="言小麦">
+<meta property="og:site_name" content="言">
 <meta property="og:description" content="原生js总是会碰到很多浏览器兼容的问题，这边就碰到的一些问题做下记录。
 1.trim() 去掉字符串两端的空格正常写法：
 1input.value.trim()
 ie不能兼容，故兼容写法可为：
 12345678910111213/* 第一种 */function strTrim(str) &amp;#123;    return str.replace(/(^\s*)|(\s*$)/g,&quot;&quot;);&amp;#125">
-<meta property="og:updated_time" content="2016-11-25T06:57:30.926Z">
+<meta property="og:updated_time" content="2016-12-22T03:36:09.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原生js兼容问题">
 <meta name="twitter:description" content="原生js总是会碰到很多浏览器兼容的问题，这边就碰到的一些问题做下记录。
@@ -129,7 +129,7 @@ ie不能兼容，故兼容写法可为：
   <link rel="canonical" href="http://yoursite.com/2016/11/25/nativejs/"/>
 
 
-  <title> 原生js兼容问题 | 言小麦 </title>
+  <title> 原生js兼容问题 | 言 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
@@ -160,7 +160,7 @@ ie不能兼容，故兼容写法可为：
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">言小麦</span>
+      <span class="site-title">言</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -358,6 +358,9 @@ ie不能兼容，故兼容写法可为：
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/* 第一种 */</div><div class="line"><span class="keyword">function</span> strTrim(str) &#123;</div><div class="line">    <span class="built_in">return</span> str.replace(/(^\s*)|(\s*$)/g,<span class="string">""</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">strTrim(input.value)</div><div class="line"></div><div class="line">/* 第二种 */</div><div class="line">String.prototype.trim = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    <span class="built_in">return</span> this.replace(/^\s\s*/, <span class="string">''</span> ).replace(/\s\s*$/, <span class="string">''</span> );</div><div class="line">&#125;</div><div class="line"></div><div class="line">input.value.trim()</div></pre></td></tr></table></figure>
 <h3 id="2-addEventListener-监听事件"><a href="#2-addEventListener-监听事件" class="headerlink" title="2.addEventListener() 监听事件"></a>2.addEventListener() 监听事件</h3><p>ie下不能识别该函数，故改用attachEvent，兼容写法如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (typeof document.addEventListener != <span class="string">'undefined'</span>) &#123;</div><div class="line">    documen.addEventListener(<span class="string">'click'</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">        var e = event || window.event;</div><div class="line">        ...</div><div class="line">    &#125;);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    /* 兼容ie */</div><div class="line">    documen.attachEvent(<span class="string">'click'</span>, <span class="keyword">function</span>(event) &#123;</div><div class="line">        var e = event || window.event;</div><div class="line">        ...</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-parseInt"><a href="#3-parseInt" class="headerlink" title="3.parseInt()"></a>3.parseInt()</h3><p>今天(2016-12-22)工作中碰到的bug。parseInt(‘09’)在ie8下是0，其他的浏览器是9。原因是09,08都是不合格的八进制形式，所以被按照0处理了。</p>
+<p>解决方法：<br>显示的告诉parseInt按照十进制处理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">parseInt(<span class="string">'09'</span>, 10);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -535,7 +538,7 @@ ie不能兼容，故兼容写法可为：
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-trim-去掉字符串两端的空格"><span class="nav-number">1.</span> <span class="nav-text">1.trim() 去掉字符串两端的空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-addEventListener-监听事件"><span class="nav-number">2.</span> <span class="nav-text">2.addEventListener() 监听事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-trim-去掉字符串两端的空格"><span class="nav-number">1.</span> <span class="nav-text">1.trim() 去掉字符串两端的空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-addEventListener-监听事件"><span class="nav-number">2.</span> <span class="nav-text">2.addEventListener() 监听事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-parseInt"><span class="nav-number">3.</span> <span class="nav-text">3.parseInt()</span></a></li></ol></div>
             
           </div>
         </section>
