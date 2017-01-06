@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Demo," />
 
 
 
@@ -84,16 +84,57 @@
 
 
 
-<meta name="description" content="做一个集吃货、健身、爱生活的前端妹纸">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="什么是瀑布流布局，如下图所示。
+
+大致原理是第一行正常排列，从第二行开始，依次将图片框逐个加到最短的列上。实现这个效果的思路是：
+
+获取每行每个图片框列的高度
+查找最短列，并依次将图片定位插入到最小列
+更新每行图片框列的高度
+滚动浏览器，图片预加载
+
+记录自己实现过程的注意点：
+
+原生js写法实现注意：
+
+Math.min 在数字中查找最小值，若要用在数组中，可以用如下方法var minH = M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用javascript实现瀑布流布局">
+<meta property="og:url" content="http://yoursite.com/2017/01/06/waterfall/index.html">
 <meta property="og:site_name" content="言">
-<meta property="og:description" content="做一个集吃货、健身、爱生活的前端妹纸">
-<meta property="og:updated_time" content="2016-11-16T03:14:40.038Z">
+<meta property="og:description" content="什么是瀑布流布局，如下图所示。
+
+大致原理是第一行正常排列，从第二行开始，依次将图片框逐个加到最短的列上。实现这个效果的思路是：
+
+获取每行每个图片框列的高度
+查找最短列，并依次将图片定位插入到最小列
+更新每行图片框列的高度
+滚动浏览器，图片预加载
+
+记录自己实现过程的注意点：
+
+原生js写法实现注意：
+
+Math.min 在数字中查找最小值，若要用在数组中，可以用如下方法var minH = M">
+<meta property="og:image" content="http://yoursite.com/image/waterfall.png">
+<meta property="og:updated_time" content="2017-01-06T09:31:34.524Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="做一个集吃货、健身、爱生活的前端妹纸">
+<meta name="twitter:title" content="用javascript实现瀑布流布局">
+<meta name="twitter:description" content="什么是瀑布流布局，如下图所示。
+
+大致原理是第一行正常排列，从第二行开始，依次将图片框逐个加到最短的列上。实现这个效果的思路是：
+
+获取每行每个图片框列的高度
+查找最短列，并依次将图片定位插入到最小列
+更新每行图片框列的高度
+滚动浏览器，图片预加载
+
+记录自己实现过程的注意点：
+
+原生js写法实现注意：
+
+Math.min 在数字中查找最小值，若要用在数组中，可以用如下方法var minH = M">
+<meta name="twitter:image" content="http://yoursite.com/image/waterfall.png">
 
 
 
@@ -114,16 +155,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/06/waterfall/"/>
 
 
-  <title>
-  
-
-  
-    标签 | 言
-  
-</title>
+  <title> 用javascript实现瀑布流布局 | 言 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
@@ -144,7 +179,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -277,16 +312,155 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
     
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            目前共计 3 个标签
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                用javascript实现瀑布流布局
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-06T16:34:46+08:00" content="2017-01-06">
+              2017-01-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/06/waterfall/" class="leancloud_visitors" data-flag-title="用javascript实现瀑布流布局">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
         </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/Demo/" style="font-size: 12px; color: #ccc">Demo</a> <a href="/tags/javascript/" style="font-size: 30px; color: #111">javascript</a> <a href="/tags/插件/" style="font-size: 12px; color: #ccc">插件</a>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>什么是瀑布流布局，如下图所示。</p>
+<p><img src="/image/waterfall.png"></p>
+<p>大致原理是第一行正常排列，从第二行开始，依次将图片框逐个加到最短的列上。实现这个效果的思路是：</p>
+<ol>
+<li>获取每行每个图片框列的高度</li>
+<li>查找最短列，并依次将图片定位插入到最小列</li>
+<li>更新每行图片框列的高度</li>
+<li>滚动浏览器，图片预加载</li>
+</ol>
+<p>记录自己实现过程的注意点：</p>
+<ul>
+<li>原生js写法实现注意：<blockquote>
+<ol>
+<li>Math.min 在数字中查找最小值，若要用在数组中，可以用如下方法<br>var minH = Math.min.apply(null, hArr);</li>
+<li>兼容写法<br>var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;<br>var height = document.body.clientHeight || document.documentElement.clientHeight;</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>jQuery写法实现注意：<blockquote>
+<ol>
+<li>$.inArray() 查找元素在数组中的位置<br>var minIndex = $.inArray(minH, hArr);</li>
+<li>$().each() 和 $.each()<br>$().each() 主要用在处理dom上<br>$.each() 用于遍历数组，$.each(dataInt.data, function(key, obj) {});</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Demo/" rel="tag">#Demo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/26/js/" rel="next" title="javascript基础">
+                <i class="fa fa-chevron-left"></i> javascript基础
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -318,8 +492,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/user.jpg"
@@ -391,6 +574,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -487,6 +681,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
