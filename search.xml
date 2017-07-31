@@ -4,6 +4,20 @@
   
     
     <entry>
+      <title><![CDATA[react Native小结]]></title>
+      <url>http://yoursite.com/2017/07/31/reactNative/</url>
+      <content type="html"><![CDATA[<p>今年公司大部分产品都转移动端，之前pc端的产品开始尝试用react来做。所以移动端采用了react native。公司的第一个RN项目是我和另一个同事一起合作来完成前端工作。这边记录一下，以备以后的总结。</p>
+<h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>项目分为教师端与学生端，我主要负责教师端</p>
+<h3 id="项目内容"><a href="#项目内容" class="headerlink" title="项目内容"></a>项目内容</h3><p>1、登录<br>2、服务器查询、绑定<br>3、题库<br>4、教师出题、批改作业等</p>
+<h3 id="平台支持"><a href="#平台支持" class="headerlink" title="平台支持"></a>平台支持</h3><p>android和ios<br>android版已稳定，正在支持ios版</p>
+<h3 id="开发方式"><a href="#开发方式" class="headerlink" title="开发方式"></a>开发方式</h3><p>1、使用svn作为版本管理<br>2、android使用Android Studio，ios使用XCode<br>3、react native使用的版本是0.42</p>
+<h3 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h3><p>1、头部导航组件<br>2、教师题型渲染组件</p>
+<h3 id="使用到的第三方库"><a href="#使用到的第三方库" class="headerlink" title="使用到的第三方库"></a>使用到的第三方库</h3><p>1、react-native-scrollable-tab-view（tab切换组件）<br>2、react-native-swipe-list-view（侧滑删除组件）<br>3、react-native-image-picker（打开相机或本地图片组件）<br>4、native-echarts（统计组件）<br>5、react-native-pull（下拉刷新组件）</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>1、项目跳转这边因为使用0.42版本，所以还是用Navigation，后面的高版本已经不支持这个，现在RN主推导航库react-navigation<br>2、在引第三方库的时候，npm install下来的都是最新的库，所以例如tab切换组件，它最新的库所要求的版本是最新的RN版本，所以npm install就会有问题，无奈，只能找之前的库来替换回来<br>3、布局方面还是应该多用flex，尽量少的使用定位<br>4、使用es6写法，this.onClick.bind(this)这种写法改成() =&gt; {this.onClick()}</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[用javascript实现瀑布流布局]]></title>
       <url>http://yoursite.com/2017/01/06/waterfall/</url>
       <content type="html"><![CDATA[<p>什么是瀑布流布局，如下图所示。</p>
@@ -102,7 +116,23 @@
     <entry>
       <title><![CDATA[手机自定义输入键盘插件开发]]></title>
       <url>http://yoursite.com/2016/11/16/inputPlugin/</url>
-      <content type="html"><![CDATA[<p>今天尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。</p>
+      <content type="html"><![CDATA[<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<h1 id="今天尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。"><a href="#今天尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。" class="headerlink" title="今天尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。"></a>今天尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。</h1><p>最近尝试把一些实现过的功能，改成属于自己的插件。虽然这些功能都挺简单的，但动手了总会有所收获。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>83fd638f192f9a93db1ef386fd862758374ff897</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <p>这边主要是一个手机自定义的输入键盘，由于公司的性质主要是会计财政方面，所以会涉及很多表单，类似收据等。所以在填写表单时，需要手机自定义的输入键盘，而非手机自带的键盘，如大写数字等…</p>
 <p>如下图所示：</p>
 <p><img src="/image/input.png"></p>
